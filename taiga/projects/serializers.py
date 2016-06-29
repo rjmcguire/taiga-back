@@ -37,10 +37,12 @@ from .notifications.choices import NotifyLevel
 # Custom values for selectors
 ######################################################
 
-class PointsSerializer(serializers.LightSerializer):
+class EpicStatusSerializer(serializers.LightSerializer):
     name = I18NField()
+    slug = Field()
     order = Field()
-    value = Field()
+    is_closed = Field()
+    color = Field()
     project = Field(attr="project_id")
 
 
@@ -52,6 +54,13 @@ class UserStoryStatusSerializer(serializers.LightSerializer):
     is_archived = Field()
     color = Field()
     wip_limit = Field()
+    project = Field(attr="project_id")
+
+
+class PointsSerializer(serializers.LightSerializer):
+    name = I18NField()
+    order = Field()
+    value = Field()
     project = Field(attr="project_id")
 
 
