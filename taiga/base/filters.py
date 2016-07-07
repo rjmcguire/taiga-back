@@ -201,7 +201,7 @@ class PermissionBasedAttachmentFilterBackend(PermissionBasedFilterBackend):
 
 
 class CanViewEpicAttachmentFilterBackend(PermissionBasedAttachmentFilterBackend):
-    permission = "view_epic"
+    permission = "view_epics"
 
 
 class CanViewUserStoryAttachmentFilterBackend(PermissionBasedAttachmentFilterBackend):
