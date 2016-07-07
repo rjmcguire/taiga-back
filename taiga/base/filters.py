@@ -158,6 +158,10 @@ class CanViewProjectFilterBackend(PermissionBasedFilterBackend):
     permission = "view_project"
 
 
+class CanViewEpicsFilterBackend(PermissionBasedFilterBackend):
+    permission = "view_epics"
+
+
 class CanViewUsFilterBackend(PermissionBasedFilterBackend):
     permission = "view_us"
 
