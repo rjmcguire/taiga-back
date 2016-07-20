@@ -535,17 +535,16 @@ class Command(BaseCommand):
                                                                      user__isnull=False)).user
             epic.save()
 
-        # TODO: Epic history
-        #take_snapshot(epic,
-        #              comment=self.sd.paragraph(),
-        #              user=epic.owner)
-        #
+        take_snapshot(epic,
+                      comment=self.sd.paragraph(),
+                      user=epic.owner)
+
         # Add history entry
-        #epic.status=self.sd.db_object_from_queryset(project.epic_statuses.filter(is_closed=False))
-        #epic.save()
-        #take_snapshot(epic,
-        #              comment=self.sd.paragraph(),
-        #              user=epic.owner)
+        epic.status=self.sd.db_object_from_queryset(project.epic_statuses.filter(is_closed=False))
+        epic.save()
+        take_snapshot(epic,
+                      comment=self.sd.paragraph(),
+                      user=epic.owner)
 
         self.create_votes(epic)
         self.create_watchers(epic)
@@ -561,6 +560,11 @@ class Command(BaseCommand):
                 RelatedUserStory.objects.create(epic=epic,
                                                 user_story=us,
                                                 order=idx+1)
+
+        # Add history entry
+        take_snapshot(epic,
+                      comment=self.sd.paragraph(),
+                      user=epic.owner)
 
         return epic
 
