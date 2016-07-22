@@ -57,11 +57,6 @@ class TaskViewSet(OCCResourceMixin, VotedResourceMixin, HistoryResourceMixin,
                        filters.TagsFilter,
                        filters.WatchersFilter,
                        filters.QFilter)
-    retrieve_exclude_filters = (filters.OwnersFilter,
-                                filters.AssignedToFilter,
-                                filters.StatusesFilter,
-                                filters.TagsFilter,
-                                filters.WatchersFilter)
     filter_fields = ["user_story",
                      "milestone",
                      "project",

@@ -65,11 +65,6 @@ class UserStoryViewSet(OCCResourceMixin, VotedResourceMixin, HistoryResourceMixi
                        filters.WatchersFilter,
                        filters.QFilter,
                        filters.OrderByFilterMixin)
-    retrieve_exclude_filters = (filters.OwnersFilter,
-                                filters.AssignedToFilter,
-                                filters.StatusesFilter,
-                                filters.TagsFilter,
-                                filters.WatchersFilter)
     filter_fields = ["project",
                      "project__slug",
                      "milestone",

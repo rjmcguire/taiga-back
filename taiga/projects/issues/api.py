@@ -59,19 +59,9 @@ class IssueViewSet(OCCResourceMixin, VotedResourceMixin, HistoryResourceMixin, W
                        filters.WatchersFilter,
                        filters.QFilter,
                        filters.OrderByFilterMixin)
-    retrieve_exclude_filters = (filters.OwnersFilter,
-                                filters.AssignedToFilter,
-                                filters.StatusesFilter,
-                                filters.IssueTypesFilter,
-                                filters.SeveritiesFilter,
-                                filters.PrioritiesFilter,
-                                filters.TagsFilter,
-                                filters.WatchersFilter,)
-
     filter_fields = ("project",
                      "project__slug",
                      "status__is_closed")
-
     order_by_fields = ("type",
                        "status",
                        "severity",
