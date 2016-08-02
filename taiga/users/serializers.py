@@ -24,10 +24,9 @@ from taiga.base.fields import PgArrayField, Field, MethodField, I18NField
 from taiga.base.utils.thumbnails import get_thumbnail_url
 
 from taiga.projects.models import Project
-from .services import get_user_photo_url, get_big_photo_url, get_user_big_photo_url
+from .services import get_user_photo_url, get_user_big_photo_url
 from taiga.users.gravatar import get_user_gravatar_id
 from taiga.users.models import User
-from collections import namedtuple
 
 
 ######################################################
@@ -142,7 +141,7 @@ class RoleSerializer(serializers.LightSerializer):
     project = Field(attr="project_id")
     order = Field()
     members_count = MethodField()
-    permissions = PgArrayField(required=False)
+    permissions = Field(required=False)
 
     def get_members_count(self, obj):
         return obj.memberships.count()
